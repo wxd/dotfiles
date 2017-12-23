@@ -86,3 +86,9 @@ qt() {
     #     │└─ search all files under each directory, recursively
     #     └─ ignore case
 }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Load OS specific functions.
+
+. "functions/$OS/bash_functions"
