@@ -10,8 +10,8 @@ print_in_purple "\n   UI & UX\n\n"
 execute "gsettings set com.canonical.indicator.bluetooth visible false" \
     "Hide bluetooth icon from the menu bar"
 
-execute "gsettings set com.canonical.indicator.sound visible false" \
-    "Hide volume icon from the menu bar"
+# execute "gsettings set com.canonical.indicator.sound visible false" \
+#     "Hide volume icon from the menu bar"
 
 execute "gsettings set com.canonical.indicator.power icon-policy 'charge' && \
          gsettings set com.canonical.indicator.power show-time false" \
@@ -24,7 +24,7 @@ execute "gsettings set com.canonical.indicator.datetime custom-time-format '%l:%
 execute "gsettings set org.gnome.desktop.background picture-options 'stretched'" \
     "Set desktop background image options"
 
-execute "gsettings set org.gnome.libgnomekbd.keyboard layouts \"[ 'us', 'ro' ]\"" \
+execute "gsettings set org.gnome.libgnomekbd.keyboard layouts \"[ 'us', 'ru' ]\"" \
     "Set keyboard languages"
 
 execute "gsettings set com.canonical.Unity.Launcher favorites \"[
