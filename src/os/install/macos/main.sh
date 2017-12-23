@@ -21,7 +21,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./../npm.sh
 ./tmux.sh
 ./video_tools.sh
-./../vim.sh
 ./web_font_tools.sh
 
 ./cleanup.sh
