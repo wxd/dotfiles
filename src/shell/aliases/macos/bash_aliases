@@ -86,12 +86,6 @@ alias o="open"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Delete .DS_Store files in the current directory and its children.
-
-alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Merge PDF files.
 
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'

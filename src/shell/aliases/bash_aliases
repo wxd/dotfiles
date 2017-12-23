@@ -29,6 +29,12 @@ alias zipforget="zip -m9voT"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Duplicates `delete-files` in `bash_functions`
+
+alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Load OS specific aliases.
 
 . "aliases/$OS/bash_aliases"
