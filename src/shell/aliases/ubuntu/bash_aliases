@@ -44,10 +44,3 @@ alias local-ip="ifconfig \
 # Open from the terminal.
 
 alias o="xdg-open"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Update applications and CLTs.
-
-alias u="sudo apt-get update \
-            && sudo apt-get upgrade"
