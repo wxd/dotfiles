@@ -17,7 +17,7 @@ function tofinder() {
 function name-tab() {
 	local -r TAB_NAME="$1"
 
-	printf "\e]1;${TAB_NAME}\a"
+	printf "\e]1;%s\a" "${TAB_NAME}"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

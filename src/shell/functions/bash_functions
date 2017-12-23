@@ -53,11 +53,11 @@ mkd() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function write-exif-date-to-field() {
-    TARGET_FIELD=$1
-    GROUP=$2
-    FILES=$3
+    local -r TARGET_FIELD=$1
+    local -r GROUP=$2
+    local -r FILES=$3
 
-    exiftool -d "%Y%m%d%H%M%S-$GROUP%%c.%%e" "-$TARGET_FIELD<datetimeoriginal" $3
+    exiftool -d "%Y%m%d%H%M%S-$GROUP%%c.%%e" "-$TARGET_FIELD<datetimeoriginal" "${FILES}"
 }
 
 alias exifrename="write-exif-date-to-field filename"
