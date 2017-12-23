@@ -13,6 +13,19 @@ alias ll="ls -l"
 alias map="xargs -n1"
 alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias t="tmux"
+alias trim='cut -c -`tput cols`'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias lsync="rsync -avh --progress"
+alias nsync="rsync -avzh --progress"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias zip0="zip -0vo"
+alias zip1="zip -1vo"
+alias zip9="zip -9vo"
+alias zipforget="zip -m9voT"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

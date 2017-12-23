@@ -8,6 +8,18 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Determine applications using system resources.
+
+alias memhogstop='top -l 1 -o rsize | head -n 22 | tail -n 11'
+
+alias memhogsps='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+
+alias cpuhogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10' 
+
+alias hddhogs='sudo iotop -P -C 5 1'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Shorter commands for `Homebrew`.
 
 alias brewd="brew doctor"
@@ -48,6 +60,20 @@ alias show-desktop-icons="defaults write com.apple.finder CreateDesktop -bool tr
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Hide/show files.
+
+alias hide-file="chflags hidden"
+
+alias unhide-file="chflags nohidden"
+
+alias hide-hidden-files="defaults write com.apple.finder ShowAllFiles -bool false \
+                            && killall Finder"
+
+alias show-hidden-files="defaults write com.apple.finder ShowAllFiles -bool true \
+                            && killall Finder"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Get local IP.
 
 alias local-ip="ipconfig getifaddr en1"
@@ -57,3 +83,15 @@ alias local-ip="ipconfig getifaddr en1"
 # Open from the terminal.
 
 alias o="open"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Delete .DS_Store files in the current directory and its children.
+
+alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Merge PDF files.
+
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
