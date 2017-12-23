@@ -3,6 +3,7 @@
 A fork of [Cătălin Mariș](https://github.com/alrra)’s dotfiles.
 See the [README](https://github.com/alrra/dotfiles/blob/master/README.md) file over there for all details.
 
+
 ## Installation sequence
 
 - `os/setup.sh`: the core script (asks for `sudo` rights)
