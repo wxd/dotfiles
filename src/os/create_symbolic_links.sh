@@ -12,7 +12,7 @@ create_symlinks() {
         "shell/aliases/bash_aliases"
         "shell/autocomplete/$(get_os)/bash_autocomplete"
         "shell/bash_exports"
-        "shell/bash_functions"
+        "shell/functions/bash_functions"
         "shell/bash_logout"
         "shell/bash_options"
         "shell/bash_profile"
