@@ -10,11 +10,11 @@ print_in_purple "\n   Transmission\n\n"
 execute "defaults write org.m0k.transmission DeleteOriginalTorrent -bool true" \
     "Delete the original torrent files"
 
-execute "defaults write org.m0k.transmission DownloadAsk -bool false" \
-    "Don’t prompt for confirmation before downloading"
+# execute "defaults write org.m0k.transmission DownloadAsk -bool false" \
+#     "Don’t prompt for confirmation before downloading"
 
-execute "defaults write org.m0k.transmission MagnetOpenAsk -bool false" \
-    "Don’t prompt for confirmation before downloading for magnet links"
+# execute "defaults write org.m0k.transmission MagnetOpenAsk -bool false" \
+#     "Don’t prompt for confirmation before downloading for magnet links"
 
 execute "defaults write org.m0k.transmission CheckRemoveDownloading -bool true" \
     "Don’t prompt for confirmation before removing non-downloading active transfers"

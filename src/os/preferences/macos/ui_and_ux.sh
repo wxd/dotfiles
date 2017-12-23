@@ -11,8 +11,8 @@ execute "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool
          defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true" \
    "Avoid creating '.DS_Store' files on network or USB volumes"
 
-execute "defaults write com.apple.menuextra.battery ShowPercent -string 'NO'" \
-    "Hide battery percentage from the menu bar"
+# execute "defaults write com.apple.menuextra.battery ShowPercent -string 'NO'" \
+#     "Hide battery percentage from the menu bar"
 
 execute "sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true" \
     "Show language menu in the top right corner of the boot screen"
@@ -72,10 +72,10 @@ execute "defaults write -g QLPanelAnimationDuration -float 0" \
 execute "defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false" \
     "Disable resume system-wide"
 
-execute "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string 'Laptop' && \
-         sudo scutil --set ComputerName 'laptop' && \
-         sudo scutil --set HostName 'laptop' && \
-         sudo scutil --set LocalHostName 'laptop'" \
+execute "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string 'Moreno' && \
+         sudo scutil --set ComputerName 'moreno' && \
+         sudo scutil --set HostName 'moreno' && \
+         sudo scutil --set LocalHostName 'moreno'" \
     "Set computer name"
 
 execute "sudo systemsetup -setrestartfreeze on" \
@@ -86,17 +86,17 @@ execute "sudo defaults write /Library/Preferences/com.apple.Bluetooth.plist Cont
          sudo launchctl load /System/Library/LaunchDaemons/com.apple.blued.plist" \
     "Turn Bluetooth off"
 
-execute "for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-            sudo defaults write \"\${domain}\" dontAutoLoad -array \
-                '/System/Library/CoreServices/Menu Extras/TimeMachine.menu' \
-                '/System/Library/CoreServices/Menu Extras/Volume.menu'
-         done \
-            && sudo defaults write com.apple.systemuiserver menuExtras -array \
-                '/System/Library/CoreServices/Menu Extras/Bluetooth.menu' \
-                '/System/Library/CoreServices/Menu Extras/AirPort.menu' \
-                '/System/Library/CoreServices/Menu Extras/Battery.menu' \
-                '/System/Library/CoreServices/Menu Extras/Clock.menu'
-        " \
-    "Hide Time Machine and Volume icons from the menu bar"
+# execute "for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+#             sudo defaults write \"\${domain}\" dontAutoLoad -array \
+#                 '/System/Library/CoreServices/Menu Extras/TimeMachine.menu' \
+#                 '/System/Library/CoreServices/Menu Extras/Volume.menu'
+#          done \
+#             && sudo defaults write com.apple.systemuiserver menuExtras -array \
+#                 '/System/Library/CoreServices/Menu Extras/Bluetooth.menu' \
+#                 '/System/Library/CoreServices/Menu Extras/AirPort.menu' \
+#                 '/System/Library/CoreServices/Menu Extras/Battery.menu' \
+#                 '/System/Library/CoreServices/Menu Extras/Clock.menu'
+#         " \
+#     "Hide Time Machine and Volume icons from the menu bar"
 
 killall "SystemUIServer" &> /dev/null

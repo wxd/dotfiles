@@ -38,8 +38,8 @@ execute "defaults write com.apple.dock persistent-apps -array && \
          defaults write com.apple.dock persistent-others -array " \
     "Wipe all app icons"
 
-execute "defaults write com.apple.dock show-process-indicators -bool true" \
-    "Show indicator lights for open applications"
+execute "defaults write com.apple.dock show-process-indicators -bool false" \
+    "Don't show indicator lights for open applications"
 
 execute "defaults write com.apple.dock showhidden -bool true" \
     "Make icons of hidden applications translucent"
