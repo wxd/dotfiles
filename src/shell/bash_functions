@@ -52,6 +52,20 @@ mkd() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+function write-exif-date-to-field() {
+    TARGET_FIELD=$1
+    GROUP=$2
+    FILES=$3
+
+    exiftool -d "%Y%m%d%H%M%S-$GROUP%%c.%%e" "-$TARGET_FIELD<datetimeoriginal" $3
+}
+
+alias exifrename="write-exif-date-to-field filename"
+
+alias exifrename-dry="write-exif-date-to-field testname"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Search history.
 
 qh() {
