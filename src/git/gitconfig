@@ -127,6 +127,9 @@
     #                     │        └─ decorations (branch, heads or tags)
     #                     └─ hash (abbreviated)
 
+    # Alternative (https://github.com/paulmillr/dotfiles/blob/master/home/.gitconfig):
+    # custom = "%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
+
 
 [push]
 
@@ -141,6 +144,14 @@
     # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
 
     useConfigOnly = true
+
+[advice]
+
+    statusHints = false
+
+[log]
+
+    abbrevCommit = true
 
 [include]
 
