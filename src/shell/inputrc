@@ -32,3 +32,9 @@ set mark-symlinked-directories on
 # Append file type markers when listing possible completions
 
 set visible-stats on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Signal whether parentheses match
+
+set blink-matching-paren on
