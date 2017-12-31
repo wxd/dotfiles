@@ -38,3 +38,10 @@ set visible-stats on
 # Signal whether parentheses match
 
 set blink-matching-paren on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# For example, "cd ~/src/mo[z]il" => "cd ~/src/mozilla", not "mozillail"
+# (This is supported by the Readline used by Bash 4.)
+
+set skip-completed-text on
