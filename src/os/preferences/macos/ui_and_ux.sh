@@ -7,15 +7,25 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_in_purple "\n   UI & UX\n\n"
 
+execute "defaults write com.apple.screensaver askForPassword -int 1 && \
+         defaults write com.apple.screensaver askForPasswordDelay -int 5" \
+   "Require password 5 seconds after sleep or screen saver begins"
+
+execute "defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false" \
+   "Disable Menu bar transparency"
+
 execute "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true && \
          defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true" \
    "Avoid creating '.DS_Store' files on network or USB volumes"
 
-# execute "defaults write com.apple.menuextra.battery ShowPercent -string 'NO'" \
-#     "Hide battery percentage from the menu bar"
+execute "defaults write com.apple.menuextra.battery ShowPercent -string 'YES'" \
+    "Show battery percentage from the menu bar"
 
 execute "sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true" \
     "Show language menu in the top right corner of the boot screen"
+
+execute "sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName" \
+    "Show technical details on clicking the clock in the login window"
 
 execute "defaults write com.apple.CrashReporter UseUNC 1" \
     "Make crash reports appear as notifications"
@@ -72,11 +82,11 @@ execute "defaults write -g QLPanelAnimationDuration -float 0" \
 execute "defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false" \
     "Disable resume system-wide"
 
-execute "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string 'Moreno' && \
-         sudo scutil --set ComputerName 'moreno' && \
-         sudo scutil --set HostName 'moreno' && \
-         sudo scutil --set LocalHostName 'moreno'" \
-    "Set computer name"
+# execute "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string 'Moreno' && \
+#          sudo scutil --set ComputerName 'moreno' && \
+#          sudo scutil --set HostName 'moreno' && \
+#          sudo scutil --set LocalHostName 'moreno'" \
+#     "Set computer name"
 
 execute "sudo systemsetup -setrestartfreeze on" \
     "Restart automatically if the computer freezes"
@@ -85,6 +95,8 @@ execute "sudo defaults write /Library/Preferences/com.apple.Bluetooth.plist Cont
          sudo launchctl unload /System/Library/LaunchDaemons/com.apple.blued.plist && \
          sudo launchctl load /System/Library/LaunchDaemons/com.apple.blued.plist" \
     "Turn Bluetooth off"
+
+execute "sudo nvram SystemAudioVolume=0" "Disable the sound effects on boot"
 
 # execute "for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
 #             sudo defaults write \"\${domain}\" dontAutoLoad -array \
