@@ -26,3 +26,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 ./trackpad.sh
 ./transmission.sh
 ./ui_and_ux.sh
+./disk.sh
