@@ -19,4 +19,16 @@ set completion-ignore-case on
 
 # Auto list TAB completions.
 
-set show-all-if-ambiguous off
+set show-all-if-ambiguous on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Add a slash to completed symlinks that are directories
+
+set mark-symlinked-directories on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append file type markers when listing possible completions
+
+set visible-stats on
