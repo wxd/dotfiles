@@ -44,3 +44,10 @@ alias local-ip="ifconfig \
 # Open from the terminal.
 
 alias o="xdg-open"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Manipulate the clipboard from command line.
+
+alias pbcopy='xclip -i -selection clipboard'
+alias pbpaste='xclip -o -selection clipboard'
