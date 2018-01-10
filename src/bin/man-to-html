@@ -20,7 +20,7 @@ if [ ! "$1" ]; then
   exit
 fi
 
-cache_dir=$DOTFILES/caches/manh
+cache_dir="${XDG_CACHE_HOME}/man-to-html"
 
 # Figure out what the filename should be.
 file="$cache_dir/${2:+$2.}$1.html"
@@ -40,4 +40,17 @@ $(MANWIDTH=120 man "$@" 2>/dev/null | man2html -bare -nodepage)
 EOF
 
 # Open HTML (if it does exist).
-[[ -e "$file" ]] && open "$file"
+open_url() {
+
+    # The order of the following checks matters as
+    # on Ubuntu there is also a utility called `open`.
+
+    if cmd_exists "xdg-open"; then
+        xdg-open "$1"
+    elif cmd_exists "open"; then
+        open "$1"
+    fi
+
+}
+
+[[ -e "$file" ]] && open_url "$file"
