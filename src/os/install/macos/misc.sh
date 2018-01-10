@@ -9,6 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 print_in_purple "\n   Miscellaneous\n\n"
 
 brew_install "Spectacle" "spectacle" "caskroom/cask" "cask"
+brew_install "Sublime Text 3" "sublime-text" "caskroom/cask" "cask"
 brew_install "Transmission" "transmission" "caskroom/cask" "cask"
 brew_install "Unarchiver" "the-unarchiver" "caskroom/cask" "cask"
 brew_install "VLC" "vlc" "caskroom/cask" "cask"

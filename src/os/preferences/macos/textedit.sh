@@ -15,3 +15,7 @@ execute "defaults write com.apple.TextEdit RichText 0" \
     "Use plain text mode for new documents"
 
 killall "TextEdit" &> /dev/null
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+link "../Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
