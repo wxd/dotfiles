@@ -112,3 +112,7 @@ execute "sudo nvram SystemAudioVolume=0" "Disable the sound effects on boot"
 #     "Hide Time Machine and Volume icons from the menu bar"
 
 killall "SystemUIServer" &> /dev/null
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+link "./spectacle.json" "$HOME/Library/Application Support/Spectacle/Shortcuts.json"
