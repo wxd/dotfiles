@@ -20,6 +20,8 @@ create_symlinks() {
         "shell/bashrc"
         "shell/curlrc"
         "shell/inputrc"
+        "shell/screenrc"
+        "shell/wgetrc"
 
         "git/gitattributes"
         "git/gitconfig"
