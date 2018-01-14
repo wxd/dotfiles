@@ -24,6 +24,7 @@ main() {
         ! -path '../src/os/preferences/macos/*.applescript' \
         ! -path '../src/os/preferences/macos/*.terminal' \
         ! -path '../src/os/preferences/macos/spectacle.json' \
+        ! -path '../src/os/preferences/hosts' \
         ! -path '../src/os/preferences/Preferences.sublime-settings' \
         -exec shellcheck \
                 -e SC1090 \
