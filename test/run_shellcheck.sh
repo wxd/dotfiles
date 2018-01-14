@@ -19,8 +19,12 @@ main() {
         -type f \
         ! -path '../src/shell/curlrc' \
         ! -path '../src/shell/inputrc' \
+        ! -path '../src/shell/screenrc' \
+        ! -path '../src/shell/wgetrc' \
         ! -path '../src/os/preferences/macos/*.applescript' \
         ! -path '../src/os/preferences/macos/*.terminal' \
+        ! -path '../src/os/preferences/macos/spectacle.json' \
+        ! -path '../src/os/preferences/Preferences.sublime-settings' \
         -exec shellcheck \
                 -e SC1090 \
                 -e SC1091 \
