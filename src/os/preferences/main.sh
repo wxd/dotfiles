@@ -8,3 +8,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 print_in_purple "\n • Preferences\n"
 
 "./$(get_os)/main.sh"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+print_in_purple "\n • 'Hosts' file\n"
+
+cp ./hosts /etc/hosts
