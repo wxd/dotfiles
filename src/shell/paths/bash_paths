@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Declare directory arrays: 
+# - Directories to be prepended to PATH
+declare -x -a DIRS_TO_PREPEND=()
+
+# - Directories to be appended to PATH
+declare -x -a DIRS_TO_APPEND=(
+    "/usr/local/bin"
+    "$HOME/bin"
+    "$HOME/.dotfiles/bin"
+    "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
+)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Load OS specific PATH elements.
+
+. "paths/$OS/bash_paths"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Modify and export PATH
+
+for index in ${!DIRS_TO_PREPEND[*]}
+do
+    if [ -d ${DIRS_TO_PREPEND[$index]} ]; then
+        # Prepend a directory to PATH, if it exists
+        PATH="${DIRS_TO_PREPEND[$index]}:$PATH"
+    fi
+done
+
+for index in ${!DIRS_TO_APPEND[*]}
+do
+    if [ -d ${DIRS_TO_APPEND[$index]} ]; then
+        # Prepend a directory to PATH, if it exists
+        PATH="$PATH:${DIRS_TO_APPEND[$index]}"
+    fi
+done
+
+unset DIRS_TO_PREPEND DIRS_TO_APPEND
+
+export PATH
