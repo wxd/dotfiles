@@ -10,7 +10,7 @@ print_in_purple "\n   Dock\n\n"
 execute "defaults write com.apple.dock autohide -bool true" \
     "Automatically hide/show the Dock"
 
-execute "defaults write com.apple.dock autohide-delay -float 0" \
+execute "defaults write com.apple.dock autohide-delay -float 0.1" \
     "Disable the hide Dock delay"
 
 execute "defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true" \
@@ -44,7 +44,7 @@ execute "defaults write com.apple.dock show-process-indicators -bool false" \
 execute "defaults write com.apple.dock showhidden -bool true" \
     "Make icons of hidden applications translucent"
 
-execute "defaults write com.apple.dock tilesize -int 60" \
+execute "defaults write com.apple.dock tilesize -int 128" \
     "Set icon size"
 
 killall "Dock" &> /dev/null
