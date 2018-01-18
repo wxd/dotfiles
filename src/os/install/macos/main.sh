@@ -8,6 +8,10 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 ./xcode.sh
 ./homebrew.sh
+
+ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
+             # (https://gist.github.com/cowboy/3118588#gistcomment-2016660)
+
 ./bash.sh
 
 ./browsers.sh
@@ -19,3 +23,5 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./video_tools.sh
 
 ./cleanup.sh
+
+ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
