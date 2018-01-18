@@ -13,4 +13,4 @@ print_in_purple "\n • Preferences\n"
 
 print_in_purple "\n • 'Hosts' file\n"
 
-cp ./hosts /etc/hosts
+sudo cp ./hosts /etc/hosts
