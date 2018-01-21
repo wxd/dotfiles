@@ -22,7 +22,7 @@ declare -x -a DIRS_TO_APPEND=(
 
 # Modify and export PATH
 
-for index in "${!DIRS_TO_PREPEND[*]}"
+for index in ${!DIRS_TO_PREPEND[*]}
 do
     if [ -d "${DIRS_TO_PREPEND[$index]}" ]; then
         # Prepend a directory to PATH, if it exists
@@ -30,7 +30,7 @@ do
     fi
 done
 
-for index in "${!DIRS_TO_APPEND[*]}"
+for index in ${!DIRS_TO_APPEND[*]}
 do
     if [ -d "${DIRS_TO_APPEND[$index]}" ]; then
         # Prepend a directory to PATH, if it exists
