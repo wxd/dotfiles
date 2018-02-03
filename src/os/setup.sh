@@ -258,11 +258,21 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./install/main.sh
+    ask_for_confirmation "Do you want to install extra software?"
+    printf "\n"
+
+    if answer_is_yes; then
+        ./install/main.sh
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./preferences/main.sh
+    ask_for_confirmation "Do you want to change a bunch of settings?"
+    printf "\n"
+
+    if answer_is_yes; then
+        ./preferences/main.sh
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
