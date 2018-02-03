@@ -32,6 +32,10 @@ file="$cache_dir/${2:+$2.}$1.pdf"
 [[ -e "$file" ]] || man -t "$@" | pstopdf -i -o "$file" >/dev/null 2>&1
 
 # Open PDF (if it does exist).
+cmd_exists() {
+    command -v "$1" &> /dev/null
+}
+
 open_file() {
 
     # The order of the following checks matters as

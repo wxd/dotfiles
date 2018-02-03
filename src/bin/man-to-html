@@ -40,6 +40,10 @@ $(MANWIDTH=120 man "$@" 2>/dev/null | man2html -bare -nodepage)
 EOF
 
 # Open HTML (if it does exist).
+cmd_exists() {
+    command -v "$1" &> /dev/null
+}
+
 open_url() {
 
     # The order of the following checks matters as
