@@ -2,4 +2,6 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Empty
+# Add brew-installed GNU core utilities bin
+
+DIRS_TO_APPEND+="$(brew --prefix coreutils)/libexec/gnubin" 

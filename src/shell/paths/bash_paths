@@ -9,7 +9,6 @@ declare -x -a DIRS_TO_APPEND=(
     "/usr/local/bin"
     "$HOME/bin"
     "$HOME/.dotfiles/bin"
-    "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
