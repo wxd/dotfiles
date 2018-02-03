@@ -11,11 +11,11 @@ upgrade
 
 ./build-essentials.sh
 
-./browsers.sh
+# ./browsers.sh
 ./git.sh
 ./image_tools.sh
-./misc.sh
+# ./misc.sh
 ./misc_tools.sh
-./tmux.sh
+# ./tmux.sh
 
 ./cleanup.sh
