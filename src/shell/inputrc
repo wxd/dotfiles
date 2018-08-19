@@ -59,3 +59,13 @@ set skip-completed-text on
 # only start cycling full results on the second Shift+Tab press.
 
 set menu-complete-display-prefix on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Using Up/Down-arrows for prefix search in history.
+
+# ↑ - Up arrow
+"\e[A":history-search-backward
+
+# ↓ - Down arrow
+"\e[B":history-search-forward
