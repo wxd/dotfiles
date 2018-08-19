@@ -45,3 +45,17 @@ set blink-matching-paren on
 # (This is supported by the Readline used by Bash 4.)
 
 set skip-completed-text on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# If there are multiple matches for completion,
+# make Shift+Tab cycle through them inline.
+
+"\e[Z": menu-complete
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Perform partial completion on the first Shift+Tab press, and
+# only start cycling full results on the second Shift+Tab press.
+
+set menu-complete-display-prefix on
