@@ -8,7 +8,7 @@ declare -x -a DIRS_TO_PREPEND=()
 declare -x -a DIRS_TO_APPEND=(
     "/usr/local/bin"
     "$HOME/bin"
-    "$HOME/.dotfiles/bin"
+    "$(realpath ../bin)"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
