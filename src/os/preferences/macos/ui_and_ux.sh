@@ -82,6 +82,9 @@ execute "defaults write -g QLPanelAnimationDuration -float 0" \
 execute "defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false" \
     "Disable resume system-wide"
 
+execute "defaults write com.apple.screencapture show-thumbnail -bool false" \
+    "Do not show Screenshot app thumbnail"
+
 # execute "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string 'Moreno' && \
 #          sudo scutil --set ComputerName 'moreno' && \
 #          sudo scutil --set HostName 'moreno' && \
