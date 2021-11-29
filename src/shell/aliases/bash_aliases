@@ -30,6 +30,9 @@ alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias t="tmux"
 alias trim='cut -c -`tput cols`'
 
+alias forward-ports='ssh -f -N'
+                     #    │  └─ execute no command
+                     #    └──── go into background
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 alias lsync="rsync -avh --progress"
