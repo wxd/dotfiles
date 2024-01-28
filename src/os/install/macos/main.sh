@@ -23,7 +23,6 @@ ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
 print_in_purple "\n   Browsers \n"
 
 brew_install "Chrome" "google-chrome" "caskroom/cask" "cask"
-brew_install "Flash"  "flash-npapi"   "caskroom/cask" "cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -38,8 +37,7 @@ brew_install "ImageMagick" "imagemagick"
 brew_install "EXIF tool"   "exiftool"
 brew_install "FFmpeg"      "ffmpeg"
 
-brew_install "ImageOptim"  "imageoptim" "caskroom/cask" "cask"
-brew_install "LICEcap"     "licecap"    "caskroom/cask" "cask"
+# brew_install "LICEcap"     "licecap"    "caskroom/cask" "cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -50,7 +48,6 @@ brew_install "ShellCheck" "shellcheck"
 
 brew_install "Spectacle"      "spectacle"      "caskroom/cask" "cask"
 brew_install "Sublime Text 3" "sublime-text"   "caskroom/cask" "cask"
-brew_install "Transmission"   "transmission"   "caskroom/cask" "cask"
 brew_install "Unarchiver"     "the-unarchiver" "caskroom/cask" "cask"
 brew_install "VLC"            "vlc"            "caskroom/cask" "cask"
 
