@@ -74,12 +74,6 @@ alias show-hidden-files="defaults write com.apple.finder ShowAllFiles -bool true
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Get local IP.
-
-alias local-ip="ipconfig getifaddr en1"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Open from the terminal.
 
 alias o="open"
