@@ -1,13 +1,13 @@
 #!/bin/bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../../utils.sh" \
-    && . "./utils.sh"
+    && . "../utils.sh" \
+    && . "./macos/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./xcode.sh
-./homebrew.sh
+./macos/xcode.sh
+./macos/homebrew.sh
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -16,7 +16,7 @@ ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-./bash.sh
+./macos/bash.sh
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -62,8 +62,8 @@ brew_install "Markdown" "qlmarkdown"     "caskroom/cask" "cask"
 
 print_in_purple "\n   Cleanup \n\n"
 
-brew_cleanup
+execute "brew cleanup" "Homebrew (cleanup)"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
+ask_for_sudo  # "Homebrew explicitly invalidates the sudo timestamp"
