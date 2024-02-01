@@ -5,24 +5,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-brew_cleanup() {
-
-    # By default Homebrew does not uninstall older versions
-    # of formulas so, in order to remove them, `brew cleanup`
-    # needs to be used.
-    #
-    # https://github.com/Homebrew/brew/blob/496fff643f352b0943095e2b96dbc5e0f565db61/share/doc/homebrew/FAQ.md#how-do-i-uninstall-old-versions-of-a-formula
-
-    execute \
-        "brew cleanup" \
-        "Homebrew (cleanup)"
-
-    execute \
-        "brew cask cleanup" \
-        "Homebrew (cask cleanup)"
-
-}
-
 brew_install() {
 
     declare -r CMD="$4"
@@ -66,38 +48,7 @@ brew_install() {
 
 }
 
-brew_prefix() {
-
-    local path=""
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    if path="$(brew --prefix 2> /dev/null)"; then
-        printf "%s" "$path"
-        return 0
-    else
-        print_error "Homebrew (get prefix)"
-        return 1
-    fi
-
-}
 
 brew_tap() {
     brew tap "$1" &> /dev/null
-}
-
-brew_update() {
-
-    execute \
-        "brew update" \
-        "Homebrew (update)"
-
-}
-
-brew_upgrade() {
-
-    execute \
-        "brew upgrade" \
-        "Homebrew (upgrade)"
-
 }

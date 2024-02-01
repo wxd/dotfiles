@@ -6,6 +6,22 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+brew_prefix() {
+
+    local path=""
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if path="$(brew --prefix 2> /dev/null)"; then
+        printf "%s" "$path"
+        return 0
+    else
+        print_error "Homebrew (get prefix)"
+        return 1
+    fi
+
+}
+
 change_default_bash() {
 
     declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.bash.local"

@@ -62,8 +62,8 @@ brew_install "Markdown" "qlmarkdown"     "caskroom/cask" "cask"
 
 print_in_purple "\n   Cleanup \n\n"
 
-brew_cleanup
+execute "brew cleanup" "Homebrew (cleanup)"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
+ask_for_sudo  # "Homebrew explicitly invalidates the sudo timestamp"

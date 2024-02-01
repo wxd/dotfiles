@@ -66,8 +66,8 @@ main() {
     install_homebrew
     opt_out_of_analytics
 
-    brew_update
-    brew_upgrade
+    brew update
+    brew upgrade
 
 }
 
