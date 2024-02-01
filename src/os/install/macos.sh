@@ -20,43 +20,84 @@ ask_for_sudo # "Homebrew explicitly invalidates the sudo timestamp"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Browsers \n"
+print_in_purple "\n   Command-line tools \n"
 
-brew_install "Chrome" "google-chrome" "caskroom/cask" "cask"
+brew install \
+  azure-cli \
+  bat \
+  colima \
+  cookiecutter \
+  coreutils \
+  docker \
+  docker-buildx \
+  docker-completion \
+  docker-compose \
+  exiftool \
+  gawk \
+  gcc \
+  git \
+  git-lfs \
+  gnu-getopt \
+  gnu-sed \
+  graphviz \
+  hilite \
+  htop \
+  jq \
+  make \
+  moreutils \
+  ncdu \
+  noti \
+  pre-commit \
+  pstree \
+  python@3.12 \
+  rename \
+  shellcheck \
+  ssh-copy-id \
+  tldr \
+  watch \
+  wget \
+  youtube-dl
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Git \n\n"
-brew_install "Git" "git"
+print_in_purple "\n   GUI applications \n"
+
+brew install \
+  1password \
+  1password-cli \
+  displaylink \
+  firefox \
+  google-chrome \
+  microsoft-auto-update \
+  microsoft-office \
+  microsoft-teams \
+  pycharm \
+  rectangle \
+  slack \
+  sourcetree \
+  sublime-text \
+  the-unarchiver \
+  vlc
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Multimedia \n\n"
+print_in_purple "\n   QuickLook plug-ins \n"
 
-brew_install "ImageMagick" "imagemagick"
-brew_install "EXIF tool"   "exiftool"
-brew_install "FFmpeg"      "ffmpeg"
+brew install \
+  qlmarkdown \
+  quicklook-json
 
-# brew_install "LICEcap"     "licecap"    "caskroom/cask" "cask"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-print_in_purple "\n   Miscellaneous tools \n\n"
-
-brew_install "rename"     "rename"
-brew_install "ShellCheck" "shellcheck"
-
-brew_install "Spectacle"      "spectacle"      "caskroom/cask" "cask"
-brew_install "Sublime Text 3" "sublime-text"   "caskroom/cask" "cask"
-brew_install "Unarchiver"     "the-unarchiver" "caskroom/cask" "cask"
-brew_install "VLC"            "vlc"            "caskroom/cask" "cask"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Quick Look\n\n"
+print_in_purple "\n   Fonts \n"
 
-brew_install "JSON"     "quicklook-json" "caskroom/cask" "cask"
-brew_install "Markdown" "qlmarkdown"     "caskroom/cask" "cask"
+brew tap homebrew/cask-fonts
+
+brew install font-fira-code
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
