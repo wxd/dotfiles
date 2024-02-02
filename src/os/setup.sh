@@ -1,7 +1,5 @@
 #!/bin/bash
 
-declare skipQuestions=false
-
 # ----------------------------------------------------------------------
 # | Helper Functions                                                   |
 # ----------------------------------------------------------------------
@@ -77,8 +75,6 @@ main() {
     # it's above the required version.
     verify_os || exit 1
 
-    skip_questions "$@" && skipQuestions=true
-
     ask_for_sudo
 
     ./create_symbolic_links.sh "$@"
@@ -89,7 +85,7 @@ main() {
     printf "\n"
 
     if answer_is_yes; then
-        ./install/$(get_os).sh
+        ./install/"$(get_os).sh"
     fi
 
     ask_for_confirmation "Do you want to change a bunch of settings?"
