@@ -1,7 +1,21 @@
 #!/bin/bash
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Set up Homebrew.
+set_homebrew() {
+    HARDWARE="$(uname -m)"
+    prefix=""
+
+    if [ "$HARDWARE" == "arm64" ]; then
+        prefix="/opt/homebrew"
+    elif [ "$HARDWARE" == "x86_64" ]; then
+        prefix="/usr/local"
+    fi
+
+    eval "$($prefix/bin/brew shellenv)"
+}
+
+set_homebrew
+unset -f set_homebrew
 
 # Add brew-installed GNU core utilities bin
-
 DIRS_TO_APPEND+=("$(brew --prefix coreutils)/libexec/gnubin")

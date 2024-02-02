@@ -24,6 +24,7 @@ function configure_macos() {
   configure_trackpad
   configure_ui_and_ux
   configure_disk
+  configure_privacy
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -115,14 +116,26 @@ function configure_dock() {
   execute "defaults write com.apple.dock show-process-indicators -bool false" \
       "Don't show indicator lights for open applications"
 
+  execute "defaults write com.apple.dock show-recents -bool false" \
+      "Do not show recent applications in Dock"
+
   execute "defaults write com.apple.dock showhidden -bool true" \
       "Make icons of hidden applications translucent"
 
   execute "defaults write com.apple.dock tilesize -int 128" \
       "Set icon size"
 
-  execute "defaults write com.apple.dock show-recents -bool false" \
-      "Don’t show recent applications in Dock"
+  execute "defaults write com.apple.dock wvous-tr-corner -int 0" \
+      "Disable top right hot corner"
+
+  execute "defaults write com.apple.dock wvous-tl-corner -int 0" \
+      "Disable top left hot corner"
+
+  execute "defaults write com.apple.dock wvous-bl-corner -int 0" \
+      "Disable bottom left hot corner"
+
+  execute "defaults write com.apple.dock wvous-br-corner -int 0" \
+      "Disable bottom right hot corner"
 
   killall "Dock" &> /dev/null
 }
@@ -337,6 +350,12 @@ function configure_terminal() {
 
   execute "./set_terminal_theme.applescript" \
       "Set custom terminal theme"
+
+  # Ensure the Touch ID is used when `sudo` is required.
+  if ! grep -q "pam_tid.so" "/etc/pam.d/sudo"; then
+      execute "sudo sh -c 'echo \"auth sufficient pam_tid.so\" >> /etc/pam.d/sudo'" \
+          "Use Touch ID to authenticate sudo"
+  fi
 }
 
 
@@ -513,6 +532,14 @@ function configure_disk() {
 
   execute "sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array '/Volumes'" \
       "Disable indexing any mounted volumes that have not been indexed before"
+}
+
+
+function configure_privacy() {
+  print_in_purple "\n   Security & Privacy\n\n"
+
+  execute "defaults write com.apple.AdLib allowApplePersonalizedAdvertising -int 0" \
+      "Disable personalized ads"
 }
 
 

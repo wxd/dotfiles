@@ -1,12 +1,44 @@
 #!/bin/bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "../../utils.sh" \
-    && . "./utils.sh"
+    && . "../../utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-get_homebrew_git_config_file_path() {
+add_to_path() {
+
+    # Check if `brew` is available.
+
+    if command -v brew &> /dev/null; then
+        return
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # If not, add it to the PATH.
+
+    HARDWARE="$(uname -m)"
+    prefix=""
+
+    if [ "$HARDWARE" == "arm64" ]; then
+        prefix="/opt/homebrew"
+    elif [ "$HARDWARE" == "x86_64" ]; then
+        prefix="/usr/local"
+    else
+        print_error "Homebrew is only supported on Intel and ARM processors!"
+    fi
+
+    PATH="$prefix/bin:$PATH"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Inform the user about the availability of `brew`.
+
+    command -v brew &> /dev/null
+    print_result $? "Add to PATH"
+}
+
+get_git_config_file_path() {
 
     local path=""
 
@@ -16,20 +48,21 @@ get_homebrew_git_config_file_path() {
         printf "%s" "$path"
         return 0
     else
-        print_error "Homebrew (get config file path)"
+        print_error "Get config file path"
         return 1
     fi
 
 }
 
-install_homebrew() {
+install() {
 
     if ! cmd_exists "brew"; then
-        printf "\n" | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &> /dev/null
+        ask_for_sudo
+        printf "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &> /dev/null
         #  └─ simulate the ENTER keypress
     fi
 
-    print_result $? "Homebrew"
+    print_result $? "Install"
 
 }
 
@@ -41,7 +74,7 @@ opt_out_of_analytics() {
 
     # Try to get the path of the `Homebrew` git config file.
 
-    path="$(get_homebrew_git_config_file_path)" \
+    path="$(get_git_config_file_path)" \
         || return 1
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -51,10 +84,21 @@ opt_out_of_analytics() {
 
     if [ "$(git config --file="$path" --get homebrew.analyticsdisabled)" != "true" ]; then
         git config --file="$path" --replace-all homebrew.analyticsdisabled true &> /dev/null
+        print_result $? "Opt-out of analytics"
     fi
 
-    print_result $? "Homebrew (opt-out of analytics)"
+}
 
+update() {
+    execute \
+        "brew update" \
+        "Update"
+}
+
+upgrade() {
+    execute \
+        "brew upgrade" \
+        "Upgrade"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -63,12 +107,12 @@ main() {
 
     print_in_purple "\n   Homebrew\n\n"
 
-    install_homebrew
+    install
+    add_to_path
     opt_out_of_analytics
 
-    brew update
-    brew upgrade
-
+    update
+    upgrade
 }
 
 main
