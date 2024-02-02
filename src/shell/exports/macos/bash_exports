@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Stop macOS Terminal from showing a warning
+# message when Zsh is not the default shell.
+#
+# https://support.apple.com/en-us/HT208050
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Disabling telemetry capabilities in various apps
 # See https://github.com/beatcracker/toptout
-
 export HOMEBREW_NO_ANALYTICS=1
 export AZURE_CORE_COLLECT_TELEMETRY=0
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Fake XDG exports, for uniformity (needed by, e.g., `man-to-*` scripts 
+# Fake XDG exports, for uniformity (needed by, e.g., `man-to-*` scripts
 #                                   in `bin`)
-
 export XDG_CACHE_HOME="$HOME/Library/Caches/"
