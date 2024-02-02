@@ -115,14 +115,26 @@ function configure_dock() {
   execute "defaults write com.apple.dock show-process-indicators -bool false" \
       "Don't show indicator lights for open applications"
 
+  execute "defaults write com.apple.dock show-recents -bool false" \
+      "Do not show recent applications in Dock"
+
   execute "defaults write com.apple.dock showhidden -bool true" \
       "Make icons of hidden applications translucent"
 
   execute "defaults write com.apple.dock tilesize -int 128" \
       "Set icon size"
 
-  execute "defaults write com.apple.dock show-recents -bool false" \
-      "Don’t show recent applications in Dock"
+  execute "defaults write com.apple.dock wvous-tr-corner -int 0" \
+      "Disable top right hot corner"
+
+  execute "defaults write com.apple.dock wvous-tl-corner -int 0" \
+      "Disable top left hot corner"
+
+  execute "defaults write com.apple.dock wvous-bl-corner -int 0" \
+      "Disable bottom left hot corner"
+
+  execute "defaults write com.apple.dock wvous-br-corner -int 0" \
+      "Disable bottom right hot corner"
 
   killall "Dock" &> /dev/null
 }
