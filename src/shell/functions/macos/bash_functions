@@ -5,9 +5,9 @@
 # Show the given directory in Finder.
 
 function tofinder() { 
-	local -r DIR_NAME=$"{1:-.}" # The current directory by default.
+	local -r DIR_NAME="${1:-.}" # The current directory by default.
 
-    open -a Finder "${DIR_NAME}"
+	open -a Finder "${DIR_NAME}"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -25,7 +25,7 @@ function name-tab() {
 # Time Machine disk usage by the children of the given directory.
 
 function tmdu () { 
-	local -r ROOT_DIR=$"{1:-.}" # The current directory by default.
+	local -r ROOT_DIR="${1:-.}" # The current directory by default.
 
-    find "${ROOT_DIR}" -mindepth 1 -maxdepth 1 -type d -exec tmutil isexcluded "{}" \; | grep "Included" | sed 's/\[Included\]	//' | xargs -I{} du -sh "{}" | gsort -hr
+	find "${ROOT_DIR}" -mindepth 1 -maxdepth 1 -type d -exec tmutil isexcluded "{}" \; | grep "Included" | sed 's/\[Included\]	//' | xargs -I{} du -sh "{}" | gsort -hr
 }

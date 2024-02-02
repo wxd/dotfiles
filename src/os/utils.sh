@@ -72,7 +72,7 @@ execute() {
     # Execute commands in background
 
     eval "$CMDS" \
-        &> /dev/null \
+        > /dev/null \
         2> "$TMP_FILE" &
 
     cmdsPID=$!
@@ -159,8 +159,9 @@ is_git_repository() {
 }
 
 is_supported_version() {
-
+    # shellcheck disable=SC2206
     declare -a v1=(${1//./ })
+    # shellcheck disable=SC2206
     declare -a v2=(${2//./ })
     local i=""
 
