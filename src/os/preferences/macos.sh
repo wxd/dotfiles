@@ -24,6 +24,7 @@ function configure_macos() {
   configure_trackpad
   configure_ui_and_ux
   configure_disk
+  configure_privacy
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -525,6 +526,14 @@ function configure_disk() {
 
   execute "sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array '/Volumes'" \
       "Disable indexing any mounted volumes that have not been indexed before"
+}
+
+
+function configure_privacy() {
+  print_in_purple "\n   Security & Privacy\n\n"
+
+  execute "defaults write com.apple.AdLib allowApplePersonalizedAdvertising -int 0" \
+      "Disable personalized ads"
 }
 
 
