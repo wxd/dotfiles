@@ -20,6 +20,8 @@
     ulc = reset --soft HEAD~1                   # Undo last commit.
     w   = instaweb --httpd=webrick              # Start web-based visualizer.
 
+    push-force = push --force-if-includes --force-with-lease 
+
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Find commits by source code.
