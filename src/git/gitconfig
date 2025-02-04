@@ -114,6 +114,14 @@
     editor = nano
     excludesfile = ~/.gitignore
 
+[help]
+
+    autoCorrect = prompt
+
+[init]
+    
+    defaultBranch = main
+
 [diff "bin"]
 
     # Use `hexdump` to diff binary files.
