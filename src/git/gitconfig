@@ -114,13 +114,26 @@
     editor = nano
     excludesfile = ~/.gitignore
 
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#listing-branches
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+
 [help]
 
     autoCorrect = prompt
 
 [init]
-    
+
     defaultBranch = main
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#better-diff
+[diff]
+    algorithm      = histogram
+    colorMoved     = plain
+    mnemonicPrefix = true
+    renames        = true
 
 [diff "bin"]
 
@@ -140,13 +153,28 @@
     # Alternative (https://github.com/paulmillr/dotfiles/blob/master/home/.gitconfig):
     # custom = "%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
 
-
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#better-pushing
 [push]
+    default = simple
+    autoSetupRemote = true
 
-    # Make `git push` automatically push relevant
-    # annotated tags when pushing branches out.
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#commit-with-diffs
+[commit]
+    verbose = true
 
-    followTags = true
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#reuse-recorded-resolutions
+[rerere]
+    enabled    = true
+    autoupdate = true
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#slightly-nicer-rebase
+[rebase]
+    autoSquash = true
+    updateRefs = true
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/#better-merge-conflicts
+[merge]
+    conflictstyle = zdiff3
 
 [user]
 
